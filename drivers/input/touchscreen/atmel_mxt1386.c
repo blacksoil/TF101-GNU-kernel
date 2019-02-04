@@ -2997,8 +2997,8 @@ static int __devinit mxt_probe(struct i2c_client *client,
 	// multi touch
 	input_set_abs_params(input, ABS_MT_POSITION_X, 0, mxt->pdata->max_x, 0, 0);
 	input_set_abs_params(input, ABS_MT_POSITION_Y, 0, mxt->pdata->max_y, 0, 0);
-	input_set_abs_params(input, ABS_MT_TOUCH_MAJOR, 0, 0, 0, 0);
-	input_set_abs_params(input, ABS_MT_WIDTH_MAJOR, 0, 0, 0, 0);
+	input_set_abs_params(input, ABS_MT_TOUCH_MAJOR, 0, 0xff, 0, 0);
+	input_set_abs_params(input, ABS_MT_WIDTH_MAJOR, 0, 0xff, 0, 0);
 //	input_set_abs_params(input, ABS_MT_TRACKING_ID, 0, MXT_MAX_NUM_TOUCHES, 0, 0);
 //	input_set_abs_params(input, ABS_MT_PRESSURE, 0, 255, 0, 0); 
 

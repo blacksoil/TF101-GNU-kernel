@@ -1606,11 +1606,17 @@ static int __devinit asusec_probe(struct i2c_client *client,
 	}
 	switch_set_state(&ec_chip->dock_sdev, 0);
 
+  /*
+   * TF101:
+   * Disable power supply reporting because it causes i2c timeout,
+   * which in turns renders the keyboard and touchpad unusable.
+   *
 	err = power_supply_register(&client->dev, &asusec_power_supply[0]);
 	if (err){
 		ASUSEC_ERR("fail to register power supply for dock\n");
 		goto exit;
 	}
+  */
 	
 	asusec_wq = create_singlethread_workqueue("asusec_wq");
 	INIT_DELAYED_WORK_DEFERRABLE(&ec_chip->asusec_work, asusec_work_function);
